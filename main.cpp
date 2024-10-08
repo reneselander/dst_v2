@@ -4,7 +4,7 @@
 #include <string>
 #include <sstream>
 #include <algorithm> // Include this header for std::replace
-
+#include <iomanip>   // Include this header for std::fixed and std::setprecision
 
 void clearInput() {
     std::cin.clear();
@@ -75,12 +75,14 @@ int main() {
                 distance = getValidatedInput("Enter distance (nautical miles): ");
                 time = getTimeInput();
                 speed = calculateSpeed(distance, time);
+                std::cout << std::fixed << std::setprecision(2);
                 std::cout << "Speed: " << speed << " knots\n";
                 break;
             case 2:
                 speed = getValidatedInput("Enter speed (knots): ");
                 time = getTimeInput();
                 distance = calculateDistance(speed, time);
+                std::cout << std::fixed << std::setprecision(2);
                 std::cout << "Distance: " << distance << " nautical miles\n";
                 break;
             case 3:
