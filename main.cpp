@@ -22,7 +22,7 @@ double getValidatedInput(const std::string& prompt) {
         if (ss >> value && value > 0) {
             return value;
         } else {
-            std::cout << "Invalid input. Please enter a positive number.\n";
+            std::cout << "Invalid input. Please enter a positive number.\n\n";
             clearInput();
         }
     }
@@ -34,7 +34,7 @@ double getTimeInput() {
         std::cout << "Enter time (hours and minutes, separated by space): ";
         std::cin >> hours >> minutes;
         if (std::cin.fail() || hours < 0 || minutes < 0 || minutes >= 60) {
-            std::cout << "Invalid input. Please enter valid hours and minutes.\n";
+            std::cout << "Invalid input. Please enter valid hours and minutes.\n\n";
             clearInput();
         } else {
             return hours + minutes / 60.0;
@@ -45,7 +45,7 @@ double getTimeInput() {
 void displayTime(double time) {
     int hours = static_cast<int>(time);
     int minutes = static_cast<int>((time - hours) * 60);
-    std::cout << "Time: " << hours << " hours and " << minutes << " minutes\n";
+    std::cout << "\n\Time: " << hours << " hours and " << minutes << " minutes\n\n";
 }
 
 int main() {
@@ -54,14 +54,14 @@ int main() {
 
     while (true) {
         std::cout << "* * * Choose the calculation you want to perform: * * *\n\n";
-        std::cout << "1. Calculate Speed (knots)\n\n";
-        std::cout << "2. Calculate Distance (nautical miles)\n\n";
-        std::cout << "3. Calculate Time (hours and minutes)\n\n";
-        std::cout << "4. Exit\n";
+        std::cout << "1. Calculate required speed (knots)\n\n";
+        std::cout << "2. Calculate distance (nautical miles)\n\n";
+        std::cout << "3. Calculate time (hours and minutes)\n\n";
+        std::cout << "4. Exit\n\n";
         std::cin >> choice;
 
         if (std::cin.fail() || choice < 1 || choice > 4) {
-            std::cout << "Invalid choice. Please enter a number between 1 and 4.\n";
+            std::cout << "Invalid choice. Enter a number between 1 and 4.\n";
             clearInput();
             continue;
         }
@@ -76,18 +76,18 @@ int main() {
                 time = getTimeInput();
                 speed = calculateSpeed(distance, time);
                 std::cout << std::fixed << std::setprecision(2);
-                std::cout << "Speed: " << speed << " knots\n";
+                std::cout << "\nSpeed: " << speed << " knots\n\n";
                 break;
             case 2:
                 speed = getValidatedInput("Enter speed (knots): ");
                 time = getTimeInput();
                 distance = calculateDistance(speed, time);
                 std::cout << std::fixed << std::setprecision(2);
-                std::cout << "Distance: " << distance << " nautical miles\n";
+                std::cout << "\nDistance: " << distance << " nautical miles\n\n";
                 break;
             case 3:
                 distance = getValidatedInput("Enter distance (nautical miles): ");
-                speed = getValidatedInput("Enter speed (knots): ");
+                speed = getValidatedInput("\nEnter speed (knots): ");
                 time = calculateTime(distance, speed);
                 displayTime(time);
                 break;
