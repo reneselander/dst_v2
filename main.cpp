@@ -45,7 +45,7 @@ double getTimeInput() {
 void displayTime(double time) {
     int hours = static_cast<int>(time);
     int minutes = static_cast<int>((time - hours) * 60);
-    std::cout << "\n\Time: " << hours << " hours and " << minutes << " minutes\n\n";
+    std::cout << "\nTime: " << hours << " hours and " << minutes << " minutes\n\n";
 }
 
 int main() {

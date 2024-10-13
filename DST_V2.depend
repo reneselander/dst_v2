@@ -4,3 +4,12 @@
 
 1728228028 c:\users\r\desktop\dst_v2 - git\calculations.h
 
+1728394050 source:c:\users\r\desktop\dst_v2 - git\main.cpp
+	"calculations.h"
+	<iostream>
+	<limits>
+	<string>
+	<sstream>
+	<algorithm>
+	<iomanip>
+
